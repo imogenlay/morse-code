@@ -1,0 +1,40 @@
+@use "./media-queries" as q;
+
+$clr-white: #edfffe;
+$clr-off-white: #d8d2fb;
+$clr-dark-grey: #27282b;
+
+$clr-background-static-a: #303745;
+$clr-background-static-b: #272d39;
+
+$clr-accent: #009aff;
+
+* {
+  /* UI Debug Border
+  box-shadow: inset 0px 0px 0px 1px red;
+  */
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  font-size: 1rem;
+
+  color: $clr-off-white;
+  line-height: 1.5;
+  text-decoration: none;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  color-scheme: dark;
+}
+
+:root {
+  --default-animation-speed: 1;
+}

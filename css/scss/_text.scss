@@ -1,0 +1,80 @@
+@use "./rules/media-queries" as q;
+@use "./rules/global" as g;
+@use "./rules/mixins";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+  color: g.$clr-white;
+  text-wrap: nowrap;
+  line-height: 1.25;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  text-align: center;
+  text-wrap: wrap;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+b {
+  font-weight: 500;
+  color: g.$clr-white;
+}
+
+textarea,
+pre {
+  color: g.$clr-white;
+  line-height: 1.1;
+  font-family: "Courier New", Courier, monospace;
+
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  padding: 0.5rem;
+  margin: 4px;
+  min-height: max(10rem, 30vh);
+  width: calc(100% - 8px);
+
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  border: 2px solid white;
+}
+
+textarea {
+  background-color: #3f6e3f;
+  &:focus {
+    background-color: #487848;
+  }
+  &::selection {
+    background-color: #2b522b;
+  }
+}
+
+pre {
+  background-color: #2b522b;
+  &::selection {
+    background-color: #143614;
+  }
+}

@@ -1,0 +1,56 @@
+@use "./rules/media-queries" as q;
+@use "./rules/global" as g;
+@use "./rules/mixins";
+
+html,
+body {
+  width: 100vw;
+  box-shadow: inset 0px 0px 0px 0px transparent;
+}
+
+html {
+  // This is a static background.
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background: linear-gradient(
+    125deg,
+    g.$clr-background-static-a 5%,
+    g.$clr-background-static-b 95%
+  );
+}
+
+body {
+  @include mixins.flex(column, stretch, center, 1rem);
+
+  padding-top: 1rem;
+  min-height: 100%;
+}
+
+header,
+main {
+  width: clamp(12rem, 100% - 10vw, 60rem);
+  @include mixins.flex(column, flex-start, center, 1rem);
+}
+
+main {
+  flex-grow: 1;
+  padding-bottom: 4rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  color: g.$clr-white;
+  min-width: 10rem;
+  min-height: 2rem;
+
+  background-color: #ffffff44;
+  &:hover {
+    background-color: #ffffff66;
+  }
+  &:active {
+    background-color: #ffffff88;
+  }
+}

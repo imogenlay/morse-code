@@ -1,0 +1,153 @@
+* {
+  /* UI Debug Border
+  box-shadow: inset 0px 0px 0px 1px red;
+  */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  font-size: 1rem;
+  color: #d8d2fb;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+:root {
+  --default-animation-speed: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+  color: #edfffe;
+  text-wrap: nowrap;
+  line-height: 1.25;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  text-align: center;
+  text-wrap: wrap;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+p {
+  padding-bottom: 1rem;
+}
+
+b {
+  font-weight: 500;
+  color: #edfffe;
+}
+
+textarea,
+pre {
+  color: #edfffe;
+  line-height: 1.1;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 0.5rem;
+  margin: 4px;
+  min-height: max(10rem, 30vh);
+  width: calc(100% - 8px);
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 2px solid white;
+}
+
+textarea {
+  background-color: #3f6e3f;
+}
+textarea:focus {
+  background-color: #487848;
+}
+textarea::selection {
+  background-color: #2b522b;
+}
+
+pre {
+  background-color: #2b522b;
+}
+pre::selection {
+  background-color: #143614;
+}
+
+html,
+body {
+  width: 100vw;
+  box-shadow: inset 0px 0px 0px 0px transparent;
+}
+
+html {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background: linear-gradient(125deg, #303745 5%, #272d39 95%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  min-height: 100%;
+}
+
+header,
+main {
+  width: clamp(12rem, 100% - 10vw, 60rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+main {
+  flex-grow: 1;
+  padding-bottom: 4rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  color: #edfffe;
+  min-width: 10rem;
+  min-height: 2rem;
+  background-color: rgba(255, 255, 255, 0.2666666667);
+}
+button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+button:active {
+  background-color: rgba(255, 255, 255, 0.5333333333);
+}
+
+/*# sourceMappingURL=style.css.map */
