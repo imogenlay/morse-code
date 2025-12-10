@@ -9,7 +9,6 @@ h4,
 h5,
 h6 {
   overflow: hidden;
-  color: g.$clr-white;
   text-wrap: nowrap;
   line-height: 1.25;
   font-size: 1rem;
@@ -32,18 +31,12 @@ h3 {
   font-weight: 400;
 }
 
-p {
-  padding-bottom: 1rem;
-}
-
 b {
   font-weight: 500;
-  color: g.$clr-white;
 }
 
 textarea,
 pre {
-  color: g.$clr-white;
   line-height: 1.1;
   font-family: "Courier New", Courier, monospace;
 
@@ -59,7 +52,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 
-  border: 2px solid white;
+  border: 2px solid g.$clr-white;
 }
 
 textarea {

@@ -1,13 +1,13 @@
 @use "./media-queries" as q;
 
-$clr-white: #edfffe;
-$clr-off-white: #d8d2fb;
-$clr-dark-grey: #27282b;
+$clr-white: #eeeeee;
 
-$clr-background-static-a: #303745;
-$clr-background-static-b: #272d39;
+$clr-background-a: #303745;
+$clr-background-b: #272d39;
 
-$clr-accent: #009aff;
+$clr-button-a: #ffffff44;
+$clr-button-b: #ffffff66;
+$clr-button-c: #ffffff88;
 
 * {
   /* UI Debug Border
@@ -25,7 +25,7 @@ $clr-accent: #009aff;
   font-synthesis: none;
   font-size: 1rem;
 
-  color: $clr-off-white;
+  color: $clr-white;
   line-height: 1.5;
   text-decoration: none;
 
