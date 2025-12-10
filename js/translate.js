@@ -78,7 +78,7 @@ export function translateToMorseCode(line) {
         }
 
         if (c === " ") {
-            // All letters have a space between in morse code.
+            // Words use a slash as a 'space' in morse code.
             output += MORSE_SPACE;
             continue;
         }
@@ -91,6 +91,7 @@ export function translateToMorseCode(line) {
             output += letters[charCode - CHAR_CODE_OF_A];
         }
         else
+            // Same goes for the numbers, but subtract the char code of "0".
             output += numbers[charCode - CHAR_CODE_OF_0];
     }
 
@@ -120,6 +121,8 @@ export function translateToEnglish(line) {
             output += String.fromCharCode(CHAR_CODE_OF_0 + arrayIndex);
             continue;
         }
+
+        output += "?";
     }
 
     return output;

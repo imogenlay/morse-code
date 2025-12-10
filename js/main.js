@@ -8,14 +8,9 @@ const translateButton = document.getElementById("translate");
 const outputArea = document.getElementById("output");
 const copyButton = document.getElementById("copy");
 
-inputArea.value = "The message below is secret!\n\n" +
-    "- .... .. ... / .. ... / .- / ... . -.-. .-. . - / -- . ... ... .- --. .";
-
 /*
-TODO:
-Add a copy to clipboard button
-Add a jest test script for my translate.js functions
-Nice styles for the page 
+TODO: 
+Add a jest test script for my translate.js functions 
 */
 
 function runTranslation() {
