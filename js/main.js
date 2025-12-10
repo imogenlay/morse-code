@@ -1,72 +1,49 @@
+
+import * as Translate from "./translate.js";
+
 const header = document.getElementById("header");
 const main = document.getElementById("main");
 const inputArea = document.getElementById("input");
 const translateButton = document.getElementById("translate");
 const outputArea = document.getElementById("output");
+const copyButton = document.getElementById("copy");
 
-const letters =
-{
-    "A": ".-",
-    "B": "-...",
-    "C": "-.-.",
-    "D": "-..",
-    "E": ".",
-    "F": "..-.",
-    "G": "--.",
-    "H": "....",
-    "I": "..",
-    "J": ".---",
-    "K": "-.-",
-    "L": ".-..",
-    "M": "--",
-    "N": "-.",
-    "O": "---",
-    "P": ".--.",
-    "Q": "--.-",
-    "R": ".-.",
-    "S": "...",
-    "T": "-",
-    "U": "..-",
-    "W": ".--",
-    "X": "-..-",
-    "Y": "-.--",
-    "Z": "--.."
-};
+inputArea.value = "The message below is secret!\n\n" +
+    "- .... .. ... / .. ... / .- / ... . -.-. .-. . - / -- . ... ... .- --. .";
 
-function translateToMorseCode(line) {
-    return line + " to Morse";
-}
-
-function translateToEnglish(line) {
-    const letters = line.split(' ').filter(Boolean);
-    return line + " to English";
-}
+/*
+TODO:
+Add a copy to clipboard button
+Add a jest test script for my translate.js functions
+Nice styles for the page 
+*/
 
 function runTranslation() {
     const inputLines = inputArea.value.toUpperCase().split(/\r?\n|\r/);
 
     const outputLines = inputLines.map((line) => {
+        const textCode = Translate.checkTextForTranslationType(line);
 
-        const isMorseCode = /^[./\- ]+$/.test(line)
-        const isEnglish = /^[A-Z .]+$/.test(line)
-        console.log(line);
-        if (isMorseCode)
-            return translateToEnglish(line);
-        if (isEnglish)
-            return translateToMorseCode(line);
+        if (textCode === Translate.TEXT_CODE_TO_MORSE)
+            return Translate.translateToMorseCode(line);
 
-        const filteredSet = new Set(line.match(/[^A-Z./\- ]/g));
+        if (textCode === Translate.TEXT_CODE_TO_ENGLISH)
+            return Translate.translateToEnglish(line);
 
-        return "Cannot translate characters: " + [...filteredSet].join(", ");
+        if (textCode === Translate.TEXT_CODE_FAILURE)
+            return Translate.translateFailure(line);
 
+        return "ERROR";
     });
     outputArea.textContent = outputLines.join("\n");
 }
 
+function toClipboard() {
+    navigator.clipboard.writeText(outputArea.textContent);
+}
+
 translateButton.addEventListener("click", runTranslation);
-
-
-
+copyButton.addEventListener("click", toClipboard);
 
 
 
