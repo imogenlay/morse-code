@@ -33,3 +33,9 @@ test("Translation cannot be handled", () => {
     expect(Translate.translateFailure(".... . .-.. .-.. --- THERE")).toBe("ALERT: Cannot have both English and Morse Code in the same line.");
     expect(Translate.translateFailure("50% OF $1 IS 50C")).toBe("ALERT: Cannot translate characters: %, $");
 });
+
+test("All functions are used to translate text", () => {
+    expect(Translate.translateLine("i wonder WHAT is says")).toBe(".. / .-- --- -. -.. . .-. / .-- .... .- - / .. ... / ... .- -.-- ...");
+    expect(Translate.translateLine("..- ... . ..-. ..- .-.. / .--. .-. --- --. .-. .- --")).toBe("USEFUL PROGRAM");
+    expect(Translate.translateLine("#hash")).toBe("ALERT: Cannot translate characters: #");
+});
