@@ -44,16 +44,30 @@ const MORSE_SPACE = "/";
 const CHAR_CODE_OF_A = 65;
 const CHAR_CODE_OF_0 = 48;
 
-export const TEXT_CODE_TO_MORSE = 0;
-export const TEXT_CODE_TO_ENGLISH = 1;
-export const TEXT_CODE_FAILURE = 2;
-export const ERROR_LINE_NOT_SANITISED = "All characters must be uppercase can cannot contain newline characters.";
+export const TEXT_CODE_FAILURE = 0;
+export const TEXT_CODE_TO_MORSE = 1;
+export const TEXT_CODE_TO_ENGLISH = 2;
 
-export const checkTextForTranslationType = (line) => {
+export const ERROR_LINE_NOT_SANITISED = "Translation input cannot contain newline characters.";
 
-    const isNotSanitised = /[a-z\n]/.test(line);
+export const translateLine = (line) => {
+    const isNotSanitised = /\n/.test(line);
     if (isNotSanitised)
         throw new Error(ERROR_LINE_NOT_SANITISED);
+
+    line = line.toUpperCase();
+    const textCode = checkTextForTranslationType(line);
+
+    if (textCode === TEXT_CODE_TO_MORSE)
+        return translateToMorseCode(line);
+
+    if (textCode === TEXT_CODE_TO_ENGLISH)
+        return translateToEnglish(line);
+
+    return translateFailure(line);
+}
+
+export const checkTextForTranslationType = (line) => {
 
     const isMorseCode = /^[./\- ]+$/.test(line)
     if (isMorseCode)
@@ -89,15 +103,22 @@ export const translateToMorseCode = (line) => {
         }
 
         const charCode = c.charCodeAt(0);
-        if (charCode >= CHAR_CODE_OF_A) {
+        const lettersIndex = charCode - CHAR_CODE_OF_A;
+
+        if (charCode >= CHAR_CODE_OF_A && lettersIndex >= 0 && lettersIndex < letters.length) {
             // The unicode characters already exist in alphabetical order, 
             // meaning that subtracting the char code of "A" from the
             // char code of the current letter, will give us the array index.
-            output += letters[charCode - CHAR_CODE_OF_A];
+            output += letters[lettersIndex];
+            continue;
         }
-        else
+
+        const numbersIndex = charCode - CHAR_CODE_OF_0;
+        if (numbersIndex >= 0 && numbersIndex < numbers.length) {
             // Same goes for the numbers, but subtract the char code of "0".
-            output += numbers[charCode - CHAR_CODE_OF_0];
+            output += numbers[numbersIndex];
+            continue;
+        }
     }
 
     return output;
@@ -137,6 +158,9 @@ export const translateFailure = (line) => {
 
     if (!line)
         return "";
-    const filteredSet = new Set(line.match(/[^0-9A-Z./\- ]/g));
-    return "Cannot translate characters: " + [...filteredSet].join(", ");
+    const filteredSet = new Set(line.match(/[^./\-0-9A-Z .,!?]/g));
+
+    if (filteredSet.size === 0)
+        return "ALERT: Cannot have both English and Morse Code in the same line."
+    return "ALERT: Cannot translate characters: " + [...filteredSet].join(", ");
 }
