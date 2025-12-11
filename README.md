@@ -1,72 +1,21 @@
 # Morse Code Translator
 
-## Outline
+This site can be used to translate English to Morse Code and also Morse Code to English.
 
-This task will require you to create a web page Morse Code translator.
-The User Interface will have to look good but should remain simple (additional features, ie. sounds, lights, etc, should only be added once the MVP has been completed.)
+## Contains
 
-## MVP
+- A user interface that allows the user to either input some English text or some Morse Code.
+- Language per line auto-detection
+- JS functions that would allow the user to:
 
-- Create a user interface that allows the user to either input some English text or some Morse Code
-- Create JS functions that would allow the user to:
+  - Translate their English text into Morse Code.
+  - Morse Code into English text.
 
-  - translate their English text into Morse Code
-  - Morse Code into English text
+- Handles spaces properly:
 
-- Make sure to handle spaces properly (ie. there is 1 space between English words, but one space between Morse Code characters)
-- All non-DOM functions should have unit tests (use Jest)
-  <!-- ... --- ... / ... --- ... -->
-  <!-- sos sos -->
+  - One space between English words.
+  - One space between Morse Code characters.
+  - A slash between Morse Code words.
 
-  <!-- export const translate = (englishStr) => {
-      // have some translate logic
-      // return translatedString;
-  }-->
-
-  <!-- export const translate = (englishStr) => {
-      // have some translate logic
-      // domElement.textContent(translatedString);
-  } DO not do this, jest won;t work here, this function doesn't return anything but has a side effect of updating the dom-->
-
-## BONUS
-
-Auto-detect the language - the app should auto-detect whether the input is in Morse code or English and translate to the opposite language
-
-## Useful Resources:
-
-- [Iterate Object in JavaScript](https://www.javascripttutorial.net/object/iterate-object-in-javascript/)
-- [Looping through objects keys and values in Javascript?](https://flexiple.com/loop-through-object-javascript/)
-
-###
-
-```js
-// A to Z in Morse Code
-{
-   "A": ".-",
-   "B": "-...",
-   "C": "-.-.",
-   "D": "-..",
-   "E": ".",
-   "F": "..-.",
-   "G": "--.",
-   "H": "....",
-   "I": "..",
-   "J": ".---",
-   "K": "-.-",
-   "L": ".-..",
-   "M": "--",
-   "N": "-.",
-   "O": "---",
-   "P": ".--.",
-   "Q": "--.-",
-   "R": ".-.",
-   "S": "...",
-   "T": "-",
-   "U": "..-",
-   "W": ".--",
-   "X": "-..-",
-   "Y": "-.--",
-   "Z": "--.."
-}
-
-```
+- All non-DOM functions have unit tests using Jest.
+- All functional code is separate from DOM functions.
