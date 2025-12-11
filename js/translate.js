@@ -47,8 +47,13 @@ const CHAR_CODE_OF_0 = 48;
 export const TEXT_CODE_TO_MORSE = 0;
 export const TEXT_CODE_TO_ENGLISH = 1;
 export const TEXT_CODE_FAILURE = 2;
+export const ERROR_LINE_NOT_SANITISED = "All characters must be uppercase can cannot contain newline characters.";
 
-export function checkTextForTranslationType(line) {
+export const checkTextForTranslationType = (line) => {
+
+    const isNotSanitised = /[a-z\n]/.test(line);
+    if (isNotSanitised)
+        throw new Error(ERROR_LINE_NOT_SANITISED);
 
     const isMorseCode = /^[./\- ]+$/.test(line)
     if (isMorseCode)
@@ -61,7 +66,7 @@ export function checkTextForTranslationType(line) {
     return TEXT_CODE_FAILURE;
 }
 
-export function translateToMorseCode(line) {
+export const translateToMorseCode = (line) => {
 
     let output = "";
 
@@ -98,7 +103,7 @@ export function translateToMorseCode(line) {
     return output;
 }
 
-export function translateToEnglish(line) {
+export const translateToEnglish = (line) => {
     const morseCharacters = line.split(' ').filter(Boolean);
     let output = "";
 
@@ -128,7 +133,7 @@ export function translateToEnglish(line) {
     return output;
 }
 
-export function translateFailure(line) {
+export const translateFailure = (line) => {
 
     if (!line)
         return "";

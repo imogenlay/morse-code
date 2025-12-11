@@ -1,17 +1,9 @@
-
 import * as Translate from "./translate.js";
 
-const header = document.getElementById("header");
-const main = document.getElementById("main");
 const inputArea = document.getElementById("input");
 const translateButton = document.getElementById("translate");
 const outputArea = document.getElementById("output");
 const copyButton = document.getElementById("copy");
-
-/*
-TODO: 
-Add a jest test script for my translate.js functions 
-*/
 
 function runTranslation() {
     const inputLines = inputArea.value.toUpperCase().split(/\r?\n|\r/);
