@@ -1,0 +1,31 @@
+@use "./rules/global" as g;
+@use "./rules/mixins";
+
+h1 {
+  font-size: clamp(1.25rem, 7vw, 4rem);
+  text-align: center;
+  text-wrap: nowrap;
+  line-height: 1;
+  font-weight: 600;
+}
+
+#description {
+  width: clamp(12rem, 100% - 13vw, 45rem);
+  padding-top: 0.5rem;
+
+  summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  &[open] summary {
+    padding-bottom: 0.5rem;
+  }
+
+  hr {
+    margin: 0.25rem 0;
+    border: none;
+    background-color: g.$clr-white;
+    height: 1px;
+  }
+}

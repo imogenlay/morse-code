@@ -1,56 +1,80 @@
-@use "./rules/media-queries" as q;
 @use "./rules/global" as g;
 @use "./rules/mixins";
 
-html,
-body {
-  width: 100vw;
+$clr-button-text-a: #004095dd;
+$clr-button-text-b: #463729dd;
+
+$clr-background-outline: #5a6affac;
+
+$clr-background-a: #5c6f9a88;
+$clr-background-b: #667fb588;
+$clr-background-c: #a4795288;
+
+.text-space {
+  position: relative;
+  width: calc(100% - 8px);
+
+  button {
+    cursor: pointer;
+
+    position: absolute;
+    right: calc(1rem + 3px);
+    bottom: 1rem;
+
+    min-width: 9rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    background-color: #ffffffdd;
+    border: 2px solid;
+    &:hover {
+      background-color: #ffffff99;
+    }
+    &:active {
+      background-color: #ffffffbb;
+    }
+  }
+
+  #translate {
+    border-color: $clr-button-text-a;
+    color: $clr-button-text-a;
+  }
+
+  #copy {
+    border-color: $clr-button-text-b;
+    color: $clr-button-text-b;
+  }
 }
 
-html {
-  height: 100%;
-  box-shadow: inset 0px 0px 20px 2px g.$clr-button-a;
+textarea,
+pre {
+  overflow-x: hidden;
+  overflow-y: visible;
+  display: block;
 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  background: linear-gradient(
-    125deg,
-    g.$clr-background-a 5%,
-    g.$clr-background-b 95%
-  );
-}
-
-body {
-  @include mixins.flex(column, stretch, center, 1rem);
-
-  padding-top: 1rem;
-  min-height: 100%;
-}
-
-header,
-main {
-  width: clamp(12rem, 100% - 10vw, 60rem);
-  @include mixins.flex(column, flex-start, center, 1rem);
-}
-
-main {
+  padding: 0.5rem;
+  width: 100%;
+  height: max(10rem, 30vh);
   flex-grow: 1;
-  padding-bottom: 4rem;
+
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  border: 2px solid g.$clr-white;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  color: g.$clr-white;
-  min-width: 10rem;
-  min-height: 2rem;
+textarea {
+  background-color: $clr-background-a;
+  &:focus {
+    background-color: $clr-background-b;
+    outline-color: $clr-background-outline;
+    outline-style: solid;
+    outline-width: 3px;
+  }
+}
 
-  background-color: g.$clr-button-a;
-  &:hover {
-    background-color: g.$clr-button-b;
-  }
-  &:active {
-    background-color: g.$clr-button-c;
-  }
+pre {
+  background-color: $clr-background-c;
 }

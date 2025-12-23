@@ -1,13 +1,4 @@
-@use "./media-queries" as q;
-
-$clr-white: #eeeeee;
-
-$clr-background-a: #303745;
-$clr-background-b: #1e232e;
-
-$clr-button-a: #ffffff44;
-$clr-button-b: #ffffff66;
-$clr-button-c: #ffffff88;
+$clr-white: #fff3e4;
 
 * {
   /* UI Debug Border
@@ -18,21 +9,26 @@ $clr-button-c: #ffffff88;
   margin: 0;
   box-sizing: border-box;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-synthesis: none;
   font-size: 1rem;
 
   color: $clr-white;
-  line-height: 1.5;
+
+  line-height: 1.1;
   text-decoration: none;
 
-  overflow-x: hidden;
+  overflow-x: visible;
   scroll-behavior: smooth;
 
   color-scheme: dark;
+
+  &::selection {
+    background-color: #cdeeff66;
+  }
 }
 
 :root {

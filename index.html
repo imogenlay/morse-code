@@ -13,20 +13,36 @@
   <body>
     <header id="header">
       <h1>Morse Code Translator</h1>
+      <details id="description">
+        <summary>Instructions</summary>
+        <div>
+          <p>
+            In the box below write your text. You can write either English or
+            Morse Code! Then, click the Translate button!
+          </p>
+          <hr />
+          <p>
+            English: Must consist of 0-9, A-Z, dot, comma, question mark,
+            exclamation mark, space.
+          </p>
+          <hr />
+          <p>Morse Code: Must consist of dot, dash, slash, space.</p>
+        </div>
+      </details>
     </header>
     <main id="main">
-      <textarea
-        id="input"
-        placeholder="Put text for translation here."
-      ></textarea>
-      <p>
-        English: Must consist of 0-9, A-Z, dot, comma, question mark,
-        exclamation mark, space.
-      </p>
-      <p>Morse: Must consist of dot, dash, slash, space.</p>
-      <button id="translate">Translate</button>
-      <pre id="output"></pre>
-      <button id="copy">Copy to Clipboard</button>
+      <div class="text-space">
+        <textarea id="input">Write text here</textarea>
+        <button id="translate">Translate</button>
+      </div>
+      <div class="text-space">
+        <pre id="output"></pre>
+        <button id="copy">Copy</button>
+      </div>
     </main>
+    <div id="background">
+      <img src="./image/morse.jpg" />
+      <div></div>
+    </div>
   </body>
 </html>
