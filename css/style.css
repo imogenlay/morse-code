@@ -47,7 +47,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 110, 255, 0.4156862745) 0%, transparent 20%);
+  background: linear-gradient(180deg, rgba(0, 110, 255, 0.6235294118) 0vw, transparent 10vw);
   box-shadow: inset 0 0 20vw 0 rgba(205, 144, 103, 0.5333333333);
 }
 
@@ -60,12 +60,11 @@
   position: absolute;
   right: calc(1rem + 3px);
   bottom: 1rem;
-  min-width: 9rem;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+  min-width: 8rem;
+  padding: 0.25rem;
+  font-size: 1.15rem;
   background-color: rgba(255, 255, 255, 0.8666666667);
-  border: 2px solid;
+  border: 1px solid;
 }
 .text-space button:hover {
   background-color: rgba(255, 255, 255, 0.6);
@@ -124,7 +123,7 @@ h1 {
   padding-top: 0.5rem;
 }
 #description summary {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 4vw, 1.1rem);
   font-weight: 600;
 }
 #description[open] summary {

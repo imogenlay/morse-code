@@ -14,7 +14,7 @@ h1 {
   padding-top: 0.5rem;
 
   summary {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 4vw, 1.1rem);
     font-weight: 600;
   }
 
